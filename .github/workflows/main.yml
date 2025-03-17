@@ -1,0 +1,34 @@
+name: CI # name of the CI
+
+on: # events, when to trigger the workflow
+  push:
+    branches: # whenever pushed to main
+      - main
+  pull_request: # whenever merged to main
+    branches:
+      - main
+
+jobs:
+  build: # name of the job is build
+    runs-on: ubuntu-latest # runs on ubuntu latest VM
+    
+    steps: # used to specify series of steps in the job that need to be executed sequentially
+      - name: Checkout the code from the repo
+        uses: actions/checkout@v4.2.2
+        
+      - name: Printing Hello Message
+        run: echo Hello, World! The VM is working fine....
+
+      - name: Checking for Formatting and Linting
+        uses: super-linter/super-linter@7.1.0
+
+      - name: Setting up Node.js Environment on Ubuntu VM
+        uses: actions/setup-node@v4.3.0
+
+      - name: Running Commands
+        run: |
+          echo Node setup successfull......
+          echo Running Tests......
+          npm run test
+        env:
+          CI: true
