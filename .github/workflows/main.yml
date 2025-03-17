@@ -20,7 +20,7 @@ jobs:
         run: echo Hello, World! The VM is working fine....
 
       - name: Checking for Formatting and Linting
-        uses: super-linter/super-linter@7.1.0
+        uses: docker://github/super-linter:v3
 
       - name: Setting up Node.js Environment on Ubuntu VM
         uses: actions/setup-node@v4.3.0
