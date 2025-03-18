@@ -22,10 +22,6 @@ jobs:
       - name: Setting up Node.js Environment
         uses: actions/setup-node@v4.3.0
 
-      - name: Installing packages and dependencies
-        run: |
-          npm install
-
       - name: Running tests
         run: |
           npm run test
