@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@jest/globals": "^29.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
     "ts-jest": "^29.2.6"
   },
   "scripts": {
