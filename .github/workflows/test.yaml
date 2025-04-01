@@ -21,6 +21,10 @@ jobs:
 
       - name: Setting up Node.js Environment
         uses: actions/setup-node@v4.3.0
+      
+      - name: Getting dependencies
+        run: |
+          npm install
 
       - name: Turnstyle in action
         uses: softprops/turnstyle@v2 
@@ -36,3 +40,4 @@ jobs:
         run: |
           sleep 5
           echo "Updated the image tag"
+
