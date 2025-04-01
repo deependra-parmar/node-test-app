@@ -1,31 +1,38 @@
-# name: CI
-# on: 
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     branches: 
-#       - main
+name: CI
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: 
+      - main
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Hello from the server
-#         run: |
-#           echo Hello from the server!
+    steps:
+      - name: Hello from the server
+        run: |
+          echo Hello from the server!
 
-#       - name: Checkout the code
-#         uses: actions/checkout@v4.2.2
+      - name: Checkout the code
+        uses: actions/checkout@v4.2.2
 
-#       - name: Setting up Node.js Environment
-#         uses: actions/setup-node@v4.3.0
+      - name: Setting up Node.js Environment
+        uses: actions/setup-node@v4.3.0
 
-#       - name: Running tests
-#         run: |
-#           npm run test
+      - name: Turnstyle in action
+        uses: softprops/turnstyle@v2 
+        with: 
+          job-to-wait-for: "build"
+          step-to-wait-for: "Updating the Image Tag"
 
-#       - name: Completion ACK
-#         run: | 
-#           echo Workflow completed
+      - name: Tests
+        run: |
+          npm run test
+      
+      - name: Updating the Image tag
+        run: |
+          sleep 5
+          echo "Updated the image tag"
