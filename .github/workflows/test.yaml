@@ -32,6 +32,7 @@ jobs:
           job-to-wait-for: "build"
           step-to-wait-for: "Updating the Image Tag"
           poll-interval-seconds: 10
+          same-branch-only: true
 
       - name: Tests
         run: |
@@ -39,5 +40,5 @@ jobs:
       
       - name: Updating the Image tag
         run: |
-          sleep 5
+          sleep 20
           echo "Updated the image tag"
