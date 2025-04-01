@@ -41,6 +41,4 @@ jobs:
       - name: Updating the Image tag
         run: |
           sleep 20
-          echo "Updated the image tag"
-
-          
+          echo "Updated the image tag"          
