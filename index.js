@@ -26,9 +26,6 @@ app.get("/bar", (req, res) => {
     })
 })
 
-
-
-
 app.listen(4000, () => {
     console.log(`Server running at port 4000`);
 })
